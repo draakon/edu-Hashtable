@@ -5,7 +5,7 @@
 
 // Uue paisktabeli loomine.
 hashtable* hashtable_new(PROTO_HASHFUNC, unsigned int bucketsCount, PROTO_COMPAREFUNC) {
-	int i;
+	unsigned int i;
 	hashtable *newTable = (hashtable*) malloc(sizeof(hashtable));
 
 	newTable->hashFunction = hashFunction;
@@ -56,7 +56,7 @@ void hashtable_remove(hashtable *table, void *data) {
 /* Vabastab kõik paisktabeli poolt kasutatud mälu:
  * ka. listide ning viidete (paisktabeli sisu) mälu.*/
 void hashtable_destroyWithContent(hashtable *table) {
-	int i;
+	unsigned int i;
 
 	for (i = 0; i < table->bucketsCount; i++)
 		linkedList_destroyWithContent(table->buckets[i]);
